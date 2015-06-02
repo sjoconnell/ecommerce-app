@@ -24,4 +24,9 @@ class ProductsController < ApplicationController
     @product.update(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
   end
 
+  def destroy
+    @product = Product.find_by(id: params[:id])
+    @product.destroy
+  end
+
 end
