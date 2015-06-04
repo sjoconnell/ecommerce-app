@@ -1,15 +1,14 @@
 <%= link_to "Add new product", "/products/new" %>
 <hr>
 
-<% @products.each do |product| %>
-
-<div>
-  <h2><%= link_to product.name, "/products/#{product.id}" %></h2>
-  <h4><%= product.price %></h4>
-  <h2><img src=<%= product.image %>></h2>
-  <h3><%= product.description %></h3>
-  <hr>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+      <h2><%= link_to product.name, "/products/#{product.id}"   %></h2>
+      <h4><%= product.price %></h4>
+      <%= image_tag product.image, class: "img-responsive", width: 200 %>
+      <h3><%= product.description %></h3>
+      <hr>
+    </div> 
+  <% end %>
 </div>
-
-
-<% end %>
