@@ -16,4 +16,6 @@ patch "/products/:id" => 'products#update'
 
 delete "/products/:id" => 'products#destroy'
 
+post "/search" => 'products#search'
+
 end
