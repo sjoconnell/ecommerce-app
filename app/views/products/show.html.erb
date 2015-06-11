@@ -9,6 +9,21 @@
 <%= image_tag image.image_url, class: "img-responsive", width: 200  %>
  <% end %>
 <h3><%= @product.description %></h3>
+
+<%= form_tag "/orders", method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <div>
+    <%= label_tag :product_id %>
+    <%= text_field_tag :product_id %>
+  </div>
+  <%= submit_tag "Buy Now" %>
+
+<% end %>
+
+
 <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
 <br>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>

@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 gem 'seed_dump'
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.4'

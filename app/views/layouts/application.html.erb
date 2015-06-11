@@ -25,7 +25,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/products?discount=true">Discount Items <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><%= link_to "Sign Up", "/users/sign_up" if not current_user %></li>
+        <li><%= link_to "Sign In", "/users/sign_in" if not current_user %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -46,7 +47,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
