@@ -1,5 +1,3 @@
-User.create!([
-  {email: "sjo773@gmail.com", encrypted_password: "$2a$10$1DtfPsuryvu.A3J8kXkRBeruH9BlOUGrEjbNg5LgNXPXtJKm.cVtW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 8, current_sign_in_at: "2015-06-11 23:45:04", last_sign_in_at: "2015-06-11 01:56:13", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
 ])
 Image.create!([
   {image_url: "http://www.leaderboardgolf.co.uk/media/k2/items/cache/095b50b2d3b74bb51d90d91753a1f697_XL.jpg", product_id: 1},
