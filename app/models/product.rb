@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :order
+  has_many :orders
   belongs_to :supplier
   has_many :images
 
@@ -14,7 +14,7 @@ def taxify
   price.to_f * 0.09
 end
 
-def total
+def total_number
   price.to_f * 1.09
 end
 
