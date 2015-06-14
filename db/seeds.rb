@@ -1,4 +1,3 @@
-])
 Image.create!([
   {image_url: "http://www.leaderboardgolf.co.uk/media/k2/items/cache/095b50b2d3b74bb51d90d91753a1f697_XL.jpg", product_id: 1},
   {image_url: "http://www.jacksgolfingsolutions.com/Graphics/Golf%20Apparel/Golf%20Shoes/Callaway/Callaway%20Mens%20XTT%20LT%20Golf%20Shoes.jpg", product_id: 2},
