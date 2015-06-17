@@ -1,0 +1,26 @@
+<h1>Shopping Cart</h1>
+
+<% @cartedproducts.each do |cartedproduct| %>
+<%= cartedproduct.product.name %>
+<%= image_tag cartedproduct.product.images.first.image_url, class: "img-responsive", width: 200 %>
+<%= cartedproduct.quantity %>
+<%= cartedproduct.product.price %>
+<% end %>
+
+<hr>
+<%= form_tag '/orders', method: :post do %>
+
+  <%= submit_tag "Buy Now" %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
