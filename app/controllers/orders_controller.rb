@@ -11,16 +11,29 @@ def new
 end
 
 def create
-  quantity = params[:quantity].to_i
-  price = Product.find_by(id: params[:product_id]).price
+  @order = Order.create(user_id: current_user.id)
 
-  order = Order.new(quantity: params[:quantity], user_id: current_user.id, product_id: params[:product_id])
-  order.subtotal = order.calculate_subtotal(price)
-  order.tax = order.calculate_tax(price)
-  order.total = order.calculate_total(price)
+  @cartedproduct = CartedProduct.where(user_id: current_user.id, status: "carted")
 
-  order.save
-  redirect_to "/orders/#{order.id}"
+  @cartedproduct.each do |cartedproduct|
+    cartedproduct.update(status: "purchased", order_id: @order.id)
+  end
+
+  subtotal = 0
+
+  @order.carted_products.each do |carteditem|
+    totalpriceofitem = carteditem.product.price * carteditem.quantity
+    subtotal = subtotal + totalpriceofitem
+  end
+
+  tax = subtotal * 0.09
+  total = subtotal + tax
+ 
+
+  @order.update(subtotal: subtotal , tax: tax , total: total )
+
+  redirect to "/orders/"
+
 end
 
 
