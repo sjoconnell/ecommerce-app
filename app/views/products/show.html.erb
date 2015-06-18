@@ -25,7 +25,8 @@
 
 <% end %>
 
-
+<% if current_user.admin %>
 <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
 <br>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
+<% end %>
