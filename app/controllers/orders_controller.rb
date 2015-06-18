@@ -32,7 +32,7 @@ def create
 
   @order.update(subtotal: subtotal , tax: tax , total: total )
 
-  redirect to "/orders/"
+  redirect_to "/orders/#{@order.id}"
 
 end
 
