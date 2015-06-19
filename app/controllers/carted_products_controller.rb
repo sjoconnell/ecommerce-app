@@ -2,8 +2,13 @@ class CartedProductsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    CartedProduct.create(quantity: params[:quantity], user_id: current_user.id, product_id: params[:product_id], status: "carted",)
-    redirect_to "/carted_products"
+    @carted_product = CartedProduct.new(quantity: params[:quantity], user_id: current_user.id, product_id: params[:product_id], status: "carted",)
+    @product = Product.find_by(id: params[:product_id])
+    if @carted_product.save
+      redirect_to "/carted_products"
+    else
+      render "/products/show"
+    end
   end
 
   def index

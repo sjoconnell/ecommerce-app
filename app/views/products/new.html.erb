@@ -1,13 +1,25 @@
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being added to the website</h2>
+ 
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Add a new product</h1>
 
 <%= form_tag '/products', method: :post do %>
   <div>
     <%= label_tag :name %>
-    <%= text_field_tag :name %>
+    <%= text_field_tag :name, @product.name %>
   </div>
   <div>
     <%= label_tag :price %>
-    <%= text_field_tag :price %>
+    <%= text_field_tag :price, @product.price %>
   </div>  
   <div>
     <%= label_tag :image %>
@@ -15,7 +27,7 @@
   </div>  
   <div>
     <%= label_tag :description %>
-    <%= text_field_tag :description %>
+    <%= text_field_tag :description, @product.description %>
   </div>
   <%= submit_tag "Add a product" %>
 
